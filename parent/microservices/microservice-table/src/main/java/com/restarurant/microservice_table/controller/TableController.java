@@ -27,8 +27,8 @@ public class TableController {
 		return ResponseEntity.status(HttpStatus.OK).body(tableService.getAllTables());
 	}
 	
-	@GetMapping("/{id}")
-	public ResponseEntity<Object> getTable(@PathVariable Long id){
+	@GetMapping("/id/{id}")
+	public ResponseEntity<Object> getTable(@PathVariable("id") Long id){
 		try {
 			Table table = tableService.getTable(id);
 			return ResponseEntity.status(HttpStatus.OK).body(table);
@@ -37,8 +37,8 @@ public class TableController {
 		}
 	}
 	
-	@GetMapping("/{name}")
-	public ResponseEntity<Object> getTable(@PathVariable String name){
+	@GetMapping("/name/{name}")
+	public ResponseEntity<Object> getTable(@PathVariable("name") String name){
 		try {
 			Table table = tableService.getTable(name);
 			return ResponseEntity.status(HttpStatus.OK).body(table);

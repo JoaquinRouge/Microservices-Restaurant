@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
+@jakarta.persistence.Table(name = "restaurant_table")
 public class Table {
 
 	@Id

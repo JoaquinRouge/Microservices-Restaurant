@@ -24,12 +24,9 @@ public class UserService implements IUserService {
 
 	@Override
 	public User getUser(Long id) {
-
-		User userFromDb = userRepository.findById(id)
+		return userRepository.findById(id)
 				.orElseThrow(() -> new IllegalArgumentException("User with id " + id +
 						" not found."));
-		
-		return userFromDb;
 	}
 
 	@Override

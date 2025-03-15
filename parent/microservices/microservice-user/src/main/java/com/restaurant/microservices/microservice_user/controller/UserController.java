@@ -28,12 +28,12 @@ public class UserController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<?> getUser(@PathVariable Long id){
+	public ResponseEntity<?> getUser(@PathVariable("id") Long id){
 		try {
 			User userFromDb = userService.getUser(id);
 			return ResponseEntity.status(HttpStatus.OK).body(userFromDb);
 		}catch(IllegalArgumentException e) {
-			return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(e.getMessage());
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
 		}
 	}
 	
